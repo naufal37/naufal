@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from django.contrib import admin
-from .views import(
+from .views import (
     posts_list,
     posts_update,
     posts_delete,
