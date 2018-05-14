@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>It Works!</title>
+</head>
+<body>
+<h1>{{ title }} IS WORKS!</h1>
+
+{% for isi in object_list %}
+{{ isi.title }}<br/>
+{{ isi.content }}<br/>
+{{ isi.timestamp }}<br/>
+{{ isi.updated }}<br/>
+{{ isi.id }}<br/>
+
+{% endfor %}
+</body>
+</html>

@@ -1,11 +1,17 @@
 from django.conf.urls import url
 from django.contrib import admin
-
+from .views import(
+    posts_list,
+    posts_update,
+    posts_delete,
+    posts_detail,
+    posts_create,
+)
 urlpatterns = [
-    url(r'^$', "posts.views.posts_list"),
-    url(r'^create/$', "posts.views.posts_create"),
-    url(r'^detail/$', "posts.views.posts_detail"),
-    url(r'^delete/$', "posts.views.posts_delete"),
-    url(r'^update/$', "posts.views.posts_update"),
+    url(r'^list/$', posts_list),
+    url(r'^create/$', posts_create),
+    url(r'^(?P<id>\d+)/$', posts_detail),
+    url(r'^delete/$', posts_delete),
+    url(r'^update/$', posts_update),
 
 ]
