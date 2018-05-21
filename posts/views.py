@@ -9,19 +9,16 @@ def posts_create(request):
         simpan = form.save(commit=False)
         print (form.cleaned_data.get("title"))
         simpan.save()
-    # if request.method == "POST":
-    #     print (request.POST.get("title"))
-    #     print (request.POST.get("content"))
 
     context = {
         "form": form,}
     return render(request, "post_form.html", context)
 
 def posts_detail(request, id):
-    instance = get_object_or_404(Post, id=id)
+    instansi = get_object_or_404(Post, id=id)
     context = {
-        "title": instance.title,
-        "instance" : instance,}
+        "judul": instansi.title,
+        "instansi" : instansi,}
     return render(request, "list.html", context)
 
 def posts_list(request):

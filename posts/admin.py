@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Post
+from .models import Post,Postingan
 
 class PostModelAdmin(admin.ModelAdmin):
     list_display = ["title","timestamp","updated"]
