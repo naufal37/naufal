@@ -7,18 +7,17 @@ def posts_create(request):
     form = PostForm(request.POST or None)
     if form.is_valid():
         simpan = form.save(commit=False)
-        print (form.cleaned_data.get("title"))
         simpan.save()
 
     context = {
         "form": form,}
     return render(request, "post_form.html", context)
 
-def posts_detail(request, id):
-    instansi = get_object_or_404(Post, id=id)
+def posts_detail(request, id=None):
+    instance = get_object_or_404(Post, id=id)
     context = {
-        "judul": instansi.title,
-        "instansi" : instansi,}
+        "title": instance.title,
+        "instance" : instance,}
     return render(request, "list.html", context)
 
 def posts_list(request):
@@ -28,8 +27,18 @@ def posts_list(request):
         "title": "List",}
     return render(request,"index.html",context)
 
-def posts_update(request):
-    return HttpResponse("<h1> Update </h1>")
+def posts_update(request,id=None):
+    instance = get_object_or_404(Post, id=id)
+    form = PostForm(request.POST or None, instance=instance)
+    if form.is_valid():
+        simpan = form.save(commit=False)
+        simpan.save()
+    context = {
+        "title": instance.title,
+        "instance": instance,
+        "form" : form, }
+    return render(request, "post_form.html", context)
+
 
 def posts_delete(request):
     return HttpResponse("<h1> Delete </h1>")
