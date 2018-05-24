@@ -10,7 +10,7 @@ from .views import (
 urlpatterns = [
     url(r'^list/$', posts_list),
     url(r'^create/$', posts_create),
-    url(r'^(?P<id>\d+)/$', posts_detail),
+    url(r'^(?P<id>\d+)/$', posts_detail, name='detail'),
     url(r'^delete/$', posts_delete),
     url(r'^(?P<id>\d+)/edit/$', posts_update, name='update'),
 

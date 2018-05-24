@@ -8,7 +8,7 @@
 <h1>{{ title }} IS WORKS!</h1>
 
 {% for isi in object_list %}
-{{ isi.title }}<br/>
+<a href='{% url "detail" id=isi.id %}' {{ isi.title }}</a> <br/>
 {{ isi.content }}<br/>
 {{ isi.timestamp }}<br/>
 {{ isi.updated }}<br/>
