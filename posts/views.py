@@ -9,7 +9,7 @@ def posts_create(request):
     if form.is_valid():
         instance = form.save(commit=False)
         instance.save()
-        messages.success(request, "success")
+        messages.success(request, "success created")
         return HttpResponseRedirect(instance.get_absolute_url())
     context = {
         "form": form,}
@@ -35,6 +35,7 @@ def posts_update(request,id=None):
     if form.is_valid():
         instance = form.save(commit=False)
         instance.save()
+        messages.success(request, "succed",extra_tags='some-tag')
         return HttpResponseRedirect(instance.get_absolute_url())
     context = {
         "title": instance.title,

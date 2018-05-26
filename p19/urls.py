@@ -18,7 +18,7 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^post/', include("posts.urls",namespace="posts")),
+    url(r'^post/', include("posts.urls",namespace="post")),
 
-    url(r'^posts/$', 'posts.views.posts_list'),
+    # url(r'^posts/$', 'posts.views.posts_list'),
 ]
