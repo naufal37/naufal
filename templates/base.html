@@ -1,9 +1,11 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>{% block head_title %}
 
     Try Django 1.9 {% endblock head_title %} </title>
+    <link rel='stylesheet' href='{% static "css/base.css" %}'/>
 <style>
     {% block style %}
     {% endblock style %}
@@ -22,5 +24,6 @@
 
 </div>
 
+<img src=' {% static "img/beach.jpg" %}'/>
 </body>
 </html>
