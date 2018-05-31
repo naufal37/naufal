@@ -3,7 +3,9 @@ from django.http import HttpResponse, HttpResponseRedirect
 from .models import Post
 from .forms import PostForm
 from django.contrib import messages
+
 # Create your views here.
+
 def posts_create(request):
     form = PostForm(request.POST or None)
     if form.is_valid():
