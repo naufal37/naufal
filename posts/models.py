@@ -16,6 +16,8 @@ class Post(models.Model) :
         return reverse("post:detail", kwargs={"id": self.id})
         # return "post/%s/" %(self.id)
 
+    class Meta:
+        ordering = ["-timestamp","updated"]
 
 class Postingan(models.Model):
     isi = models.CharField(max_length=120)
