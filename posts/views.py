@@ -67,4 +67,4 @@ def posts_delete(request,id=None):
     return redirect("post:list")
 
 def posts_awal(request,):
-    return HttpResponse("<h1> Delete </h1>")
+    return HttpResponse("<h1> Delete this </h1>")
