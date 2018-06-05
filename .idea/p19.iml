@@ -16,7 +16,7 @@
     <content url="file://$MODULE_DIR$/../media_cdn" />
     <content url="file://$MODULE_DIR$" />
     <content url="file://$MODULE_DIR$/../static_cdn" />
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="Python 3.6 (p19)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TemplatesService">

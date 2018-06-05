@@ -9,7 +9,9 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="thumbnail">
-                    {#      <img src="..." alt="...">#}
+                        {% if isi.image %}
+                        <img src="{{ isi.image.url }}" class="img-responsive"/>
+                        {% endif %}
                         <div class="caption">
                             <h3><a href="{{ isi.get_absolute_url }}">{{ isi.title }}</a><small>{{ isi.timestamp | timesince }} ago </small> </h3>
                             <p>{{ isi.content | linebreaks|truncatechars:120 }}</p>
