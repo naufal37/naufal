@@ -1,3 +1,4 @@
+from urllib.parse import quote_plus
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import Post
@@ -18,11 +19,13 @@ def posts_create(request):
         "form": form,}
     return render(request, "post_form.html", context)
 
-def posts_detail(request, id=None):
-    instance = get_object_or_404(Post, id=id)
+def posts_detail(request, slug=None):
+    instance = get_object_or_404(Post, slug=slug)
+    share_string = quote_plus(instance.content)
     context = {
         "title": instance.title,
-        "instance" : instance,}
+        "instance" : instance,
+        "share_string" : share_string,}
     return render(request, "list.html", context)
 
 def posts_list(request):
@@ -45,8 +48,8 @@ def posts_list(request):
 
     return render(request,"post_list.html",context)
 
-def posts_update(request,id=None):
-    instance = get_object_or_404(Post, id=id)
+def posts_update(request,slug=None):
+    instance = get_object_or_404(Post, slug=slug)
     form = PostForm(request.POST or None,request.FILES or None,instance=instance)
     if form.is_valid():
         instance = form.save(commit=False)
@@ -60,8 +63,8 @@ def posts_update(request,id=None):
     return render(request, "post_form.html", context)
 
 
-def posts_delete(request,id=None):
-    instance = get_object_or_404(Post, id=id)
+def posts_delete(request,slug=None):
+    instance = get_object_or_404(Post, slug=slug)
     instance.delete()
     messages.success(request, "succed deleted", extra_tags='some-tag')
     return redirect("post:list")
